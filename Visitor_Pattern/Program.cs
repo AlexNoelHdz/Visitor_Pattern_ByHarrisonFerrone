@@ -14,7 +14,6 @@ namespace Visitor_Pattern
                 new Vinyl(11198, 17.99),
                 new Book(63254, 9.79)
             };
-            //our goal with visitor pattern is calculate the discounts and number of items sold without adding any logic to the existing class hierarchy
         }
     }
 }

@@ -1,0 +1,7 @@
+﻿Our goal with visitor pattern is calculate the discounts and number of items sold 
+without adding any logic to the existing class hierarchy.
+
+Whenever a visitable element accepts a visitor, 
+the corresponding visit method is called from the concrete visitor class.
+
+one advantaje of this code is that you can have as many different concret classes as you want.

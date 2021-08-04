@@ -39,7 +39,7 @@ namespace Visitor_Pattern
 
 		public void Accept(IVisitor visitor)
 		{
-            visitor.VisitVinyl(this);
+            visitor.VisitVinyl(this);   
 		}
 	}
 }
