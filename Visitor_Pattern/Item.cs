@@ -23,13 +23,23 @@ namespace Visitor_Pattern
     /// <summary>
     /// Book Clase inherited from Item
     /// </summary>
-    public class Book: Item
+    public class Book: Item, IVisitableElement
     {
         public Book(int id, double price) : base(id, price) { }
-    }
 
-    public class Vinyl: Item
+		public void Accept(IVisitor visitor)
+		{
+            visitor.VisitBook(this);
+		}
+	}
+
+    public class Vinyl: Item, IVisitableElement
     {
         public Vinyl(int id, double price) : base(id, price) { }
-    }
+
+		public void Accept(IVisitor visitor)
+		{
+            visitor.VisitVinyl(this);
+		}
+	}
 }
