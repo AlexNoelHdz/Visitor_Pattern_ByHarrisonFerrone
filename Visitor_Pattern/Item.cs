@@ -20,7 +20,9 @@ namespace Visitor_Pattern
             return Math.Round(Price * percentage, 2);
         }
     }
-
+    /// <summary>
+    /// Book Clase inherited from Item
+    /// </summary>
     public class Book: Item
     {
         public Book(int id, double price) : base(id, price) { }
