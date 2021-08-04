@@ -23,6 +23,8 @@ namespace Visitor_Pattern
 			var discountVisitor = new DiscountVisitor();
 			foreach (var item in items)
 				item.Accept(discountVisitor);
+
+			discountVisitor.Print();
 		}
 	}
 }
