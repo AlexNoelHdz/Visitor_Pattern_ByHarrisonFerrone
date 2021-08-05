@@ -39,7 +39,7 @@ namespace Visitor_Pattern
 		/// Acumulating data example
 		/// Savings on the objects we visited. 
 		/// </summary>
-		private double _savings { get; set; }
+		private double Savings { get; set; }
 
 		public void VisitBook(Book book)
 		{
@@ -55,19 +55,40 @@ namespace Visitor_Pattern
 				Console.WriteLine($"Full Price: Book #{book.ID} is ${book.Price}");
 			}
 
-			_savings += discount;
+			Savings += discount;
 		}
 
 		public void VisitVinyl(Vinyl vinyl)
 		{
 			var discount = vinyl.GetDiscount(0.15);
 			Console.WriteLine($"Super Savings: Vinyl #{vinyl.ID} is now ${Math.Round(vinyl.Price - discount, 2)}");
-			_savings += discount;
+			Savings += discount;
 		}
 
 		public void Print()
 		{
-			Console.WriteLine($"\nYo saved a total of {Math.Round(_savings, 2)} on today's order!");
+			Console.WriteLine($"\nYo saved a total of {Math.Round(Savings, 2)} on today's order!");
+		}
+	}
+
+	public class SalesVisitor : IVisitor
+	{
+		private int BookCount = 0;
+		private int VinylCount = 0; 
+		public void VisitBook(Book book)
+		{
+			BookCount++;
+		}
+
+		public void VisitVinyl(Vinyl vinyl)
+		{
+			VinylCount++;
+		}
+
+		public void Print()
+		{
+			Console.WriteLine($"Individual sales:\n{BookCount} books.\n{VinylCount} vinyls." +
+				$"\nTotal Sales:\n{BookCount + VinylCount} units.");
 		}
 	}
 }
