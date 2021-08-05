@@ -14,6 +14,15 @@ namespace Visitor_Pattern
 
 			cart.ApplyVisitor(discountVisitor);
 			cart.ApplyVisitor(salesVisitor);
+
+
+			#region Individual calls
+			discountVisitor.Reset();
+			cart.RemoveElement(items[2]);
+			#endregion
+
+			cart.ApplyVisitor(discountVisitor);
+			cart.ApplyVisitor(salesVisitor);
 		}
 
 		private static List<IVisitableElement> FillSales()
