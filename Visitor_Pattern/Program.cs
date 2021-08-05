@@ -22,7 +22,6 @@ namespace Visitor_Pattern
 			#endregion
 
 			cart.ApplyVisitor(discountVisitor);
-			cart.ApplyVisitor(salesVisitor);
 		}
 
 		private static List<IVisitableElement> FillSales()
