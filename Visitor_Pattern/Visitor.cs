@@ -69,6 +69,11 @@ namespace Visitor_Pattern
 		{
 			Console.WriteLine($"\nYo saved a total of {Math.Round(Savings, 2)} on today's order!");
 		}
+
+		public void Reset()
+		{
+			Savings = 0.0;
+		}
 	}
 
 	public class SalesVisitor : IVisitor

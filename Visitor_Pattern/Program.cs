@@ -7,12 +7,16 @@ namespace Visitor_Pattern
     {
         static void Main(string[] args)
 		{
-			List<IVisitableElement> items = PerformSales();
-			ImplementDiscountVisitor(items);
-			ImplementSalesVisitor(items);
+			List<IVisitableElement> items = FillSales();
+			var cart = new ObjectStructure(items);
+			var discountVisitor = new DiscountVisitor();
+			var salesVisitor = new SalesVisitor();
+
+			cart.ApplyVisitor(discountVisitor);
+			cart.ApplyVisitor(salesVisitor);
 		}
 
-		private static List<IVisitableElement> PerformSales()
+		private static List<IVisitableElement> FillSales()
 		{
 			return new List<IVisitableElement>
 			{
@@ -21,24 +25,6 @@ namespace Visitor_Pattern
 				new Vinyl(11198, 17.99),
 				new Book(63254, 9.79)
 			};
-		}
-
-		private static void ImplementSalesVisitor(List<IVisitableElement> items)
-		{
-			var visitor = new SalesVisitor();
-			foreach (var item in items)
-				item.Accept(visitor);
-
-			visitor.Print();
-		}
-
-		private static void ImplementDiscountVisitor(List<IVisitableElement> items)
-		{
-			var visitor = new DiscountVisitor();
-			foreach (var item in items)
-				item.Accept(visitor);
-
-			visitor.Print();
 		}
 	}
 }
